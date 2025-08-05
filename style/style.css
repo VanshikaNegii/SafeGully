@@ -1,4 +1,13 @@
 /* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
 body {
   margin: 0;
   font-family: 'Segoe UI', 'Cambria', 'Georgia', system-ui, -apple-system, sans-serif;
@@ -400,62 +409,6 @@ body.dark-mode .footer-links a:hover {
 }
 
 /* Responsive Design */
-@media screen and (max-width: 1024px) {
-  .map-container {
-    flex-direction: column;
-  }
-  
-  #map {
-    width: 100%;
-    height: 50vh;
-  }
-  
-  #hazard-list {
-    width: 100%;
-    max-height: none;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  header {
-    padding: 1.2rem 1rem;
-  }
-  
-  header h1 {
-    font-size: 1.8rem;
-  }
-  
-  #dark-toggle {
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.2rem;
-    padding: 6px 12px;
-  }
-  
-  .map-container {
-    padding: 1rem;
-    gap: 1rem;
-  }
-  
-  #report-form {
-    padding: 1.5rem;
-    margin: 1rem;
-  }
-  
-  .form-buttons {
-    flex-direction: column;
-  }
-  
-  .right-buttons {
-    width: 100%;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-  
-  button {
-    width: 100%;
-  }
-}
 
 /* Base styles – desktop-first or mobile-first (depending on your approach) */
 .map-container {
@@ -469,37 +422,6 @@ body.dark-mode .footer-links a:hover {
   font-size: 16px;
   margin: 5px;
 }
-
-/* Responsive Breakpoints */
-
-/* Devices from 768px and down (tablets) */
-@media (max-width: 768px) {
-  .map-container {
-    height: 400px;
-  }
-
-  .map-button {
-    padding: 10px 16px;
-    font-size: 15px;
-  }
-}
-
-/* Devices from 480px to 320px (phones) */
-@media (max-width: 480px) {
-  .map-container {
-    height: 300px;
-    margin: 10px;
-  }
-
-  .map-button {
-    display: block;
-    width: 100%;
-    padding: 14px;
-    font-size: 16px;
-    margin: 8px 0;
-  }
-}
-
 
 /* Dark Mode Styles */
 body.dark-mode {
@@ -806,4 +728,92 @@ input:disabled, select:disabled, textarea:disabled {
 /* Smooth transition for all */
 input, select, textarea {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== MOBILE RESPONSIVE LAYOUT FIXES ==================== */
+
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .map-container {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1.2rem;
+    align-items: center;
+    height: auto;
+  }
+
+  #map, #hazard-list {
+    width: 100%;
+    min-width: unset;
+    max-width: 100%;
+    max-width: 500px;
+    margin: 0 auto; 
+    height: auto;
+  }
+
+  #hazard-list {
+    border-radius: 8px;
+    box-shadow: none;
+    padding: 1rem;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .filters button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .map-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-container {
+    padding: 0.8rem;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  header p {
+    font-size: 0.95rem;
+  }
+
+  .filters button {
+    font-size: 0.95rem;
+  }
+
+  #report-form {
+    padding: 1.5rem;
+  }
+
+  input, select, textarea {
+    font-size: 0.95rem;
+    padding: 0.8rem 1rem;
+  }
+
+  button {
+    font-size: 0.95rem;
+    padding: 0.8rem 1.2rem;
+  }
 }
