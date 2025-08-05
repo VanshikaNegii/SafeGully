@@ -457,6 +457,50 @@ body.dark-mode .footer-links a:hover {
   }
 }
 
+/* Base styles – desktop-first or mobile-first (depending on your approach) */
+.map-container {
+  width: 100%;
+  height: 500px;
+  margin: 20px auto;
+}
+
+.map-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  margin: 5px;
+}
+
+/* Responsive Breakpoints */
+
+/* Devices from 768px and down (tablets) */
+@media (max-width: 768px) {
+  .map-container {
+    height: 400px;
+  }
+
+  .map-button {
+    padding: 10px 16px;
+    font-size: 15px;
+  }
+}
+
+/* Devices from 480px to 320px (phones) */
+@media (max-width: 480px) {
+  .map-container {
+    height: 300px;
+    margin: 10px;
+  }
+
+  .map-button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    margin: 8px 0;
+  }
+}
+
+
 /* Dark Mode Styles */
 body.dark-mode {
   background-color: #121212;
